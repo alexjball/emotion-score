@@ -1,0 +1,28 @@
+{
+  "name": "emotion-score",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cli.js",
+  "scripts": {
+    "test": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexjball/emotion-score.git"
+  },
+  "author": "Alex Ball",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexjball/emotion-score/issues"
+  },
+  "homepage": "https://github.com/alexjball/emotion-score#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
+  "jest": {
+    "transform": {}
+  },
+  "dependencies": {
+    "csv-parse": "^4.8.2"
+  }
+}
