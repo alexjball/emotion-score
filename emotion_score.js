@@ -75,12 +75,15 @@ function loadGameProperties(gamePropertiesCsvPath) {
 }
 
 /** Prints the emotion score to the console. */
-function printEmotionScore(scores) {
+function printEmotionScores(gameDataJsonPath, gamePropertiesCsvPath) {
+  const scores = computeEmotionScores(
+    loadGameData(gameDataJsonPath),
+    loadGameProperties(gamePropertiesCsvPath)
+  );
   scores.forEach(score => {
     console.log(score.playDate);
     console.log(score.gameDisplayName);
     console.log(score.emotionScore);
-    console.log();
   });
 }
 
@@ -88,5 +91,5 @@ module.exports = {
   computeEmotionScores,
   loadGameData,
   loadGameProperties,
-  printEmotionScore
+  printEmotionScores
 };
