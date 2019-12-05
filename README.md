@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/alexjball/emotion-score.svg?branch=master)](https://travis-ci.com/alexjball/emotion-score)
+
 # emotion-score
 
 Future work:
