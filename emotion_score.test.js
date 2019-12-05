@@ -1,7 +1,8 @@
 const fs = require("fs");
 const {
   loadGameData,
-  loadGameProperties
+  loadGameProperties,
+  computeEmotionScores
 } = require("./emotion_score");
 
 const testGameDataPath = "/tmp/test-game-data.json",
@@ -49,5 +50,26 @@ describe("loadGameProperties", () => {
       createProperties("HIBACHI_HERO", "Hibachi Hero", 4),
       createProperties("TIKI_TAKA_SOCCER", "Tiki Taka Soccer", 3)
     ]);
+  });
+});
+
+describe("computeEmotionScores", () => {
+  it("computes emotion scores", () => {
+    fs.writeFileSync(
+      testGameDataPath,
+      JSON.stringify([testGameData, testGameData])
+    );
+
+    const scores = computeEmotionScores(
+      loadGameData(testGameDataPath),
+      loadGameProperties(sampleGamePropertiesPath)
+    );
+
+    const expectedScores = {
+      playDate: "2019-01-15",
+      gameDisplayName: "Hibachi Hero",
+      emotionScore: 60
+    };
+    expect(scores).toEqual([expectedScores, expectedScores]);
   });
 });
